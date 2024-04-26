@@ -8,6 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+
+
+
+
 import java.util.List;
 @Slf4j
 @RequestMapping("/jianli")
@@ -41,6 +45,11 @@ public class JianliController {
 
         return "redirect:/jianli/toJianliManager";
     }
+
+
+
+
+
     @RequestMapping("/toSetJianli/{id}")
     public String toJianliSet(@PathVariable("id") Integer id,Model model)
     {
@@ -72,7 +81,12 @@ public class JianliController {
         int b = jianliService.deleteJianli(rname);
         return "redirect:/jianli/toJianliManager";
     }//处理请求 "/user/userDel/{uid}"，用于删除用户。根据用户ID（uid），调用 userService.removeById(uid) 删除用户信息，然后重定向到用户管理页面。
-    //
+    
+
+
+
+
+
 
     @RequestMapping("/JianliSelect")
     public String JianliSelect(@RequestParam("position")String position, Model model){
@@ -80,6 +94,11 @@ public class JianliController {
         if (position!=null&&!position.equals("")) {
             queryWrapper.like("position",position);
         }
+
+
+
+
+
 //        queryWrapper.ne("id",1);
         List<Jianli> list = jianliService.list(position);
         model.addAttribute("allJianli",list);
