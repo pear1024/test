@@ -9,9 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
-
-
-
 import java.util.List;
 @Slf4j
 @RequestMapping("/jianli")
@@ -51,7 +48,8 @@ public class JianliController {
 
 
     @RequestMapping("/toSetJianli/{id}")
-    public String toJianliSet(@PathVariable("id") Integer id,Model model)
+    public String toJianliSet
+(@PathVariable("id") Integer id,Model model)
     {
         Jianli jianliinfo = jianliService.getById(id);
         model.addAttribute("jianliinfo",jianliinfo);
@@ -59,7 +57,8 @@ public class JianliController {
     }
 
     @RequestMapping("/toSetJianli1/{rname}")
-    public String toJianliSet1(@PathVariable("rname") String rname,Model model)
+    public String toJianliSet1
+(@PathVariable("rname") String rname,Model model)
     {
         Jianli jianliinfo = jianliService.getByRname(rname);
         model.addAttribute("jianliinfo",jianliinfo);
@@ -73,14 +72,20 @@ public class JianliController {
 //        System.out.println("成功调用了update");
         System.out.println(jianli);
         return "redirect:/jianli/toJianliManager";
-    }//处理请求 "/user/userSet"，用于修改用户信息。接收修改后的用户信息，调用 userService.updateById(user) 更新用户信息，然后重定向到用户管理页面。
+    }//处理请求 "/user/userSet"，
+//用于修改用户信息。接收修改后的用户信息
+//调用 userService.updateById(user) 更新用户信息
+//然后重定向到用户管理页面。
 
-    //    //标识请求地址
+    //   
+//标识请求地址
     @RequestMapping("/deleteJianli/{id}")
     public String jianliDel(@PathVariable("id") String rname, Model model){
         int b = jianliService.deleteJianli(rname);
         return "redirect:/jianli/toJianliManager";
-    }//处理请求 "/user/userDel/{uid}"，用于删除用户。根据用户ID（uid），调用 userService.removeById(uid) 删除用户信息，然后重定向到用户管理页面。
+    }//处理请求 "/user/userDel/{uid}"，用于删除用户。
+//根据用户ID（uid），调用 userService.removeById(uid) 删除用户信息
+//然后重定向到用户管理页面。
     
 
 
